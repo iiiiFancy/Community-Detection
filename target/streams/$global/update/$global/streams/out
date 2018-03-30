@@ -1,0 +1,245 @@
+[info] Updating {file:/E:/IdeaProjects/HW5/}hw5...
+[debug] :: resolving dependencies :: default#hw5_2.10;0.1
+[debug] 	confs: [compile, runtime, test, provided, optional, compile-internal, runtime-internal, test-internal, plugin, sources, docs, pom, scala-tool]
+[debug] 	validate = true
+[debug] 	refresh = false
+[debug] resolving dependencies for configuration 'compile'
+[debug] == resolving dependencies for default#hw5_2.10;0.1 [compile]
+[debug] == resolving dependencies default#hw5_2.10;0.1->org.scala-lang#scala-library;2.10.2 [compile->default(compile)]
+[info] Resolving org.scala-lang#scala-library;2.10.2 ...
+[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@7803c42f
+[info] Resolving org.scala-lang#scala-library;2.10.2 ...
+[debug] sbt-chain-delegate: Checking cache for: sbt.ivyint.MergedDescriptors@7803c42f
+[debug] 		tried C:\Users\70417\.ivy2\local\org.scala-lang\scala-library\2.10.2\ivys\ivy.xml
+[debug] 	local: no ivy file found for org.scala-lang#scala-library;2.10.2
+[debug] 		tried file:/C:/Users/70417/.sbt/preloaded/org.scala-lang/scala-library/2.10.2/ivys/ivy.xml
+[debug] 	local-preloaded-ivy: no ivy file found for org.scala-lang#scala-library;2.10.2
+[debug] 		tried file:/C:/Users/70417/.sbt/preloaded/org/scala-lang/scala-library/2.10.2/scala-library-2.10.2.pom
+[debug] 	local-preloaded: no ivy file found for org.scala-lang#scala-library;2.10.2
+[debug] 		tried https://repo1.maven.org/maven2/org/scala-lang/scala-library/2.10.2/scala-library-2.10.2.pom
+[debug] 	public: found md file for org.scala-lang#scala-library;2.10.2
+[debug] 		=> https://repo1.maven.org/maven2/org/scala-lang/scala-library/2.10.2/scala-library-2.10.2.pom (2.10.2)
+[debug] downloading https://repo1.maven.org/maven2/org/scala-lang/scala-library/2.10.2/scala-library-2.10.2.pom ...
+[debug] 	public: downloading https://repo1.maven.org/maven2/org/scala-lang/scala-library/2.10.2/scala-library-2.10.2.pom
+[debug] 	public: downloading https://repo1.maven.org/maven2/org/scala-lang/scala-library/2.10.2/scala-library-2.10.2.pom.sha1
+[debug] sha1 OK for https://repo1.maven.org/maven2/org/scala-lang/scala-library/2.10.2/scala-library-2.10.2.pom
+[debug] 	[SUCCESSFUL ] org.scala-lang#scala-library;2.10.2!scala-library.pom(pom.original) (85ms)
+[debug] 		tried C:\Users\70417\.ivy2\local\org.scala-lang\scala-library\2.10.2\jars\scala-library.jar
+[debug] 		tried file:/C:/Users/70417/.sbt/preloaded/org.scala-lang/scala-library/2.10.2/jars/scala-library.jar
+[debug] 		tried file:/C:/Users/70417/.sbt/preloaded/org/scala-lang/scala-library/2.10.2/scala-library-2.10.2.jar
+[debug] 		tried https://repo1.maven.org/maven2/org/scala-lang/scala-library/2.10.2/scala-library-2.10.2.jar
+[debug] 	found org.scala-lang#scala-library;2.10.2 in public
+[debug] 	[2.10.2] org.scala-lang#scala-library;2.10.2
+[debug] == resolving dependencies default#hw5_2.10;0.1->org.scala-lang#scala-library;2.10.2 [compile->runtime]
+[debug] == resolving dependencies default#hw5_2.10;0.1->org.scala-lang#scala-library;2.10.2 [compile->compile]
+[debug] == resolving dependencies default#hw5_2.10;0.1->org.scala-lang#scala-library;2.10.2 [compile->master]
+[debug] resolving dependencies for configuration 'runtime'
+[debug] == resolving dependencies for default#hw5_2.10;0.1 [runtime]
+[debug] == resolving dependencies for default#hw5_2.10;0.1 [compile]
+[debug] == resolving dependencies default#hw5_2.10;0.1->org.scala-lang#scala-library;2.10.2 [compile->default(compile)]
+[debug] == resolving dependencies default#hw5_2.10;0.1->org.scala-lang#scala-library;2.10.2 [compile->runtime]
+[debug] == resolving dependencies default#hw5_2.10;0.1->org.scala-lang#scala-library;2.10.2 [compile->compile]
+[debug] == resolving dependencies default#hw5_2.10;0.1->org.scala-lang#scala-library;2.10.2 [compile->master]
+[debug] resolving dependencies for configuration 'test'
+[debug] == resolving dependencies for default#hw5_2.10;0.1 [test]
+[debug] == resolving dependencies for default#hw5_2.10;0.1 [runtime]
+[debug] == resolving dependencies for default#hw5_2.10;0.1 [compile]
+[debug] == resolving dependencies default#hw5_2.10;0.1->org.scala-lang#scala-library;2.10.2 [compile->default(compile)]
+[debug] == resolving dependencies default#hw5_2.10;0.1->org.scala-lang#scala-library;2.10.2 [compile->runtime]
+[debug] == resolving dependencies default#hw5_2.10;0.1->org.scala-lang#scala-library;2.10.2 [compile->compile]
+[debug] == resolving dependencies default#hw5_2.10;0.1->org.scala-lang#scala-library;2.10.2 [compile->master]
+[debug] resolving dependencies for configuration 'provided'
+[debug] == resolving dependencies for default#hw5_2.10;0.1 [provided]
+[debug] resolving dependencies for configuration 'optional'
+[debug] == resolving dependencies for default#hw5_2.10;0.1 [optional]
+[debug] resolving dependencies for configuration 'compile-internal'
+[debug] == resolving dependencies for default#hw5_2.10;0.1 [compile-internal]
+[debug] == resolving dependencies for default#hw5_2.10;0.1 [compile]
+[debug] == resolving dependencies default#hw5_2.10;0.1->org.scala-lang#scala-library;2.10.2 [compile->default(compile)]
+[debug] == resolving dependencies default#hw5_2.10;0.1->org.scala-lang#scala-library;2.10.2 [compile->runtime]
+[debug] == resolving dependencies default#hw5_2.10;0.1->org.scala-lang#scala-library;2.10.2 [compile->compile]
+[debug] == resolving dependencies default#hw5_2.10;0.1->org.scala-lang#scala-library;2.10.2 [compile->master]
+[debug] == resolving dependencies for default#hw5_2.10;0.1 [optional]
+[debug] == resolving dependencies for default#hw5_2.10;0.1 [provided]
+[debug] resolving dependencies for configuration 'runtime-internal'
+[debug] == resolving dependencies for default#hw5_2.10;0.1 [runtime-internal]
+[debug] == resolving dependencies for default#hw5_2.10;0.1 [runtime]
+[debug] == resolving dependencies for default#hw5_2.10;0.1 [compile]
+[debug] == resolving dependencies default#hw5_2.10;0.1->org.scala-lang#scala-library;2.10.2 [compile->default(compile)]
+[debug] == resolving dependencies default#hw5_2.10;0.1->org.scala-lang#scala-library;2.10.2 [compile->runtime]
+[debug] == resolving dependencies default#hw5_2.10;0.1->org.scala-lang#scala-library;2.10.2 [compile->compile]
+[debug] == resolving dependencies default#hw5_2.10;0.1->org.scala-lang#scala-library;2.10.2 [compile->master]
+[debug] == resolving dependencies for default#hw5_2.10;0.1 [optional]
+[debug] resolving dependencies for configuration 'test-internal'
+[debug] == resolving dependencies for default#hw5_2.10;0.1 [test-internal]
+[debug] == resolving dependencies for default#hw5_2.10;0.1 [test]
+[debug] == resolving dependencies for default#hw5_2.10;0.1 [runtime]
+[debug] == resolving dependencies for default#hw5_2.10;0.1 [compile]
+[debug] == resolving dependencies default#hw5_2.10;0.1->org.scala-lang#scala-library;2.10.2 [compile->default(compile)]
+[debug] == resolving dependencies default#hw5_2.10;0.1->org.scala-lang#scala-library;2.10.2 [compile->runtime]
+[debug] == resolving dependencies default#hw5_2.10;0.1->org.scala-lang#scala-library;2.10.2 [compile->compile]
+[debug] == resolving dependencies default#hw5_2.10;0.1->org.scala-lang#scala-library;2.10.2 [compile->master]
+[debug] == resolving dependencies for default#hw5_2.10;0.1 [optional]
+[debug] == resolving dependencies for default#hw5_2.10;0.1 [provided]
+[debug] resolving dependencies for configuration 'plugin'
+[debug] == resolving dependencies for default#hw5_2.10;0.1 [plugin]
+[debug] resolving dependencies for configuration 'sources'
+[debug] == resolving dependencies for default#hw5_2.10;0.1 [sources]
+[debug] resolving dependencies for configuration 'docs'
+[debug] == resolving dependencies for default#hw5_2.10;0.1 [docs]
+[debug] resolving dependencies for configuration 'pom'
+[debug] == resolving dependencies for default#hw5_2.10;0.1 [pom]
+[debug] resolving dependencies for configuration 'scala-tool'
+[debug] == resolving dependencies for default#hw5_2.10;0.1 [scala-tool]
+[debug] == resolving dependencies default#hw5_2.10;0.1->org.scala-lang#scala-compiler;2.10.2 [scala-tool->default]
+[info] Resolving org.scala-lang#scala-compiler;2.10.2 ...
+[debug] sbt-chain: Checking cache for: dependency: org.scala-lang#scala-compiler;2.10.2 {scala-tool=[default, optional(default)]}
+[info] Resolving org.scala-lang#scala-compiler;2.10.2 ...
+[debug] sbt-chain-delegate: Checking cache for: dependency: org.scala-lang#scala-compiler;2.10.2 {scala-tool=[default, optional(default)]}
+[debug] 		tried C:\Users\70417\.ivy2\local\org.scala-lang\scala-compiler\2.10.2\ivys\ivy.xml
+[debug] 	local: no ivy file found for org.scala-lang#scala-compiler;2.10.2
+[debug] 		tried file:/C:/Users/70417/.sbt/preloaded/org.scala-lang/scala-compiler/2.10.2/ivys/ivy.xml
+[debug] 	local-preloaded-ivy: no ivy file found for org.scala-lang#scala-compiler;2.10.2
+[debug] 		tried file:/C:/Users/70417/.sbt/preloaded/org/scala-lang/scala-compiler/2.10.2/scala-compiler-2.10.2.pom
+[debug] 	local-preloaded: no ivy file found for org.scala-lang#scala-compiler;2.10.2
+[debug] 		tried https://repo1.maven.org/maven2/org/scala-lang/scala-compiler/2.10.2/scala-compiler-2.10.2.pom
+[debug] 	public: found md file for org.scala-lang#scala-compiler;2.10.2
+[debug] 		=> https://repo1.maven.org/maven2/org/scala-lang/scala-compiler/2.10.2/scala-compiler-2.10.2.pom (2.10.2)
+[debug] downloading https://repo1.maven.org/maven2/org/scala-lang/scala-compiler/2.10.2/scala-compiler-2.10.2.pom ...
+[debug] 	public: downloading https://repo1.maven.org/maven2/org/scala-lang/scala-compiler/2.10.2/scala-compiler-2.10.2.pom
+[debug] 	public: downloading https://repo1.maven.org/maven2/org/scala-lang/scala-compiler/2.10.2/scala-compiler-2.10.2.pom.sha1
+[debug] sha1 OK for https://repo1.maven.org/maven2/org/scala-lang/scala-compiler/2.10.2/scala-compiler-2.10.2.pom
+[debug] 	[SUCCESSFUL ] org.scala-lang#scala-compiler;2.10.2!scala-compiler.pom(pom.original) (82ms)
+[debug] 		tried C:\Users\70417\.ivy2\local\org.scala-lang\scala-compiler\2.10.2\jars\scala-compiler.jar
+[debug] 		tried file:/C:/Users/70417/.sbt/preloaded/org.scala-lang/scala-compiler/2.10.2/jars/scala-compiler.jar
+[debug] 		tried file:/C:/Users/70417/.sbt/preloaded/org/scala-lang/scala-compiler/2.10.2/scala-compiler-2.10.2.jar
+[debug] 		tried https://repo1.maven.org/maven2/org/scala-lang/scala-compiler/2.10.2/scala-compiler-2.10.2.jar
+[debug] 	found org.scala-lang#scala-compiler;2.10.2 in public
+[debug] == resolving dependencies default#hw5_2.10;0.1->org.scala-lang#scala-compiler;2.10.2 [scala-tool->runtime]
+[debug] == resolving dependencies default#hw5_2.10;0.1->org.scala-lang#scala-compiler;2.10.2 [scala-tool->compile]
+[debug] == resolving dependencies org.scala-lang#scala-compiler;2.10.2->org.scala-lang#scala-library;2.10.2 [compile->master(*)]
+[debug] == resolving dependencies org.scala-lang#scala-compiler;2.10.2->org.scala-lang#scala-library;2.10.2 [compile->compile(*)]
+[debug] == resolving dependencies org.scala-lang#scala-compiler;2.10.2->org.scala-lang#scala-library;2.10.2 [compile->default]
+[debug] == resolving dependencies org.scala-lang#scala-compiler;2.10.2->org.scala-lang#scala-library;2.10.2 [compile->runtime]
+[debug] == resolving dependencies org.scala-lang#scala-compiler;2.10.2->org.scala-lang#scala-library;2.10.2 [compile->compile]
+[debug] == resolving dependencies org.scala-lang#scala-compiler;2.10.2->org.scala-lang#scala-library;2.10.2 [compile->master]
+[debug] == resolving dependencies org.scala-lang#scala-compiler;2.10.2->org.scala-lang#scala-library;2.10.2 [compile->runtime(*)]
+[debug] == resolving dependencies org.scala-lang#scala-compiler;2.10.2->org.scala-lang#scala-library;2.10.2 [compile->compile]
+[debug] == resolving dependencies org.scala-lang#scala-compiler;2.10.2->org.scala-lang#scala-library;2.10.2 [compile->optional(default)]
+[debug] == resolving dependencies org.scala-lang#scala-compiler;2.10.2->org.scala-lang#scala-reflect;2.10.2 [compile->master(*)]
+[info] Resolving org.scala-lang#scala-reflect;2.10.2 ...
+[debug] sbt-chain: Checking cache for: dependency: org.scala-lang#scala-reflect;2.10.2 {compile=[compile(*), master(*)], runtime=[runtime(*)]}
+[info] Resolving org.scala-lang#scala-reflect;2.10.2 ...
+[debug] sbt-chain-delegate: Checking cache for: dependency: org.scala-lang#scala-reflect;2.10.2 {compile=[compile(*), master(*)], runtime=[runtime(*)]}
+[debug] 		tried C:\Users\70417\.ivy2\local\org.scala-lang\scala-reflect\2.10.2\ivys\ivy.xml
+[debug] 	local: no ivy file found for org.scala-lang#scala-reflect;2.10.2
+[debug] 		tried file:/C:/Users/70417/.sbt/preloaded/org.scala-lang/scala-reflect/2.10.2/ivys/ivy.xml
+[debug] 	local-preloaded-ivy: no ivy file found for org.scala-lang#scala-reflect;2.10.2
+[debug] 		tried file:/C:/Users/70417/.sbt/preloaded/org/scala-lang/scala-reflect/2.10.2/scala-reflect-2.10.2.pom
+[debug] 	local-preloaded: no ivy file found for org.scala-lang#scala-reflect;2.10.2
+[debug] 		tried https://repo1.maven.org/maven2/org/scala-lang/scala-reflect/2.10.2/scala-reflect-2.10.2.pom
+[debug] 	public: found md file for org.scala-lang#scala-reflect;2.10.2
+[debug] 		=> https://repo1.maven.org/maven2/org/scala-lang/scala-reflect/2.10.2/scala-reflect-2.10.2.pom (2.10.2)
+[debug] downloading https://repo1.maven.org/maven2/org/scala-lang/scala-reflect/2.10.2/scala-reflect-2.10.2.pom ...
+[debug] 	public: downloading https://repo1.maven.org/maven2/org/scala-lang/scala-reflect/2.10.2/scala-reflect-2.10.2.pom
+[debug] 	public: downloading https://repo1.maven.org/maven2/org/scala-lang/scala-reflect/2.10.2/scala-reflect-2.10.2.pom.sha1
+[debug] sha1 OK for https://repo1.maven.org/maven2/org/scala-lang/scala-reflect/2.10.2/scala-reflect-2.10.2.pom
+[debug] 	[SUCCESSFUL ] org.scala-lang#scala-reflect;2.10.2!scala-reflect.pom(pom.original) (82ms)
+[debug] 		tried C:\Users\70417\.ivy2\local\org.scala-lang\scala-reflect\2.10.2\jars\scala-reflect.jar
+[debug] 		tried file:/C:/Users/70417/.sbt/preloaded/org.scala-lang/scala-reflect/2.10.2/jars/scala-reflect.jar
+[debug] 		tried file:/C:/Users/70417/.sbt/preloaded/org/scala-lang/scala-reflect/2.10.2/scala-reflect-2.10.2.jar
+[debug] 		tried https://repo1.maven.org/maven2/org/scala-lang/scala-reflect/2.10.2/scala-reflect-2.10.2.jar
+[debug] 	found org.scala-lang#scala-reflect;2.10.2 in public
+[debug] 	[2.10.2] org.scala-lang#scala-reflect;2.10.2
+[debug] == resolving dependencies org.scala-lang#scala-compiler;2.10.2->org.scala-lang#scala-reflect;2.10.2 [compile->compile(*)]
+[debug] == resolving dependencies org.scala-lang#scala-reflect;2.10.2->org.scala-lang#scala-library;2.10.2 [compile->master(*)]
+[debug] == resolving dependencies org.scala-lang#scala-reflect;2.10.2->org.scala-lang#scala-library;2.10.2 [compile->compile(*)]
+[debug] == resolving dependencies org.scala-lang#scala-compiler;2.10.2->org.scala-lang#scala-reflect;2.10.2 [compile->runtime(*)]
+[debug] == resolving dependencies org.scala-lang#scala-compiler;2.10.2->org.scala-lang#scala-reflect;2.10.2 [compile->compile]
+[debug] == resolving dependencies org.scala-lang#scala-reflect;2.10.2->org.scala-lang#scala-library;2.10.2 [runtime->runtime(*)]
+[debug] == resolving dependencies org.scala-lang#scala-reflect;2.10.2->org.scala-lang#scala-library;2.10.2 [runtime->compile]
+[debug] == resolving dependencies org.scala-lang#scala-compiler;2.10.2->org.scala-lang#scala-library;2.10.2 [runtime->runtime(*)]
+[debug] == resolving dependencies org.scala-lang#scala-compiler;2.10.2->org.scala-lang#scala-library;2.10.2 [runtime->compile]
+[debug] == resolving dependencies org.scala-lang#scala-compiler;2.10.2->org.scala-lang#scala-reflect;2.10.2 [runtime->runtime(*)]
+[debug] == resolving dependencies org.scala-lang#scala-compiler;2.10.2->org.scala-lang#scala-reflect;2.10.2 [runtime->compile]
+[debug] == resolving dependencies default#hw5_2.10;0.1->org.scala-lang#scala-compiler;2.10.2 [scala-tool->master]
+[debug] == resolving dependencies default#hw5_2.10;0.1->org.scala-lang#scala-compiler;2.10.2 [scala-tool->optional(default)]
+[debug] == resolving dependencies org.scala-lang#scala-compiler;2.10.2->org.scala-lang#jline;2.10.2 [optional->master(*)]
+[info] Resolving org.scala-lang#jline;2.10.2 ...
+[debug] sbt-chain: Checking cache for: dependency: org.scala-lang#jline;2.10.2 {optional=[compile(*), master(*)]}
+[info] Resolving org.scala-lang#jline;2.10.2 ...
+[debug] sbt-chain-delegate: Checking cache for: dependency: org.scala-lang#jline;2.10.2 {optional=[compile(*), master(*)]}
+[debug] 		tried C:\Users\70417\.ivy2\local\org.scala-lang\jline\2.10.2\ivys\ivy.xml
+[debug] 	local: no ivy file found for org.scala-lang#jline;2.10.2
+[debug] 		tried file:/C:/Users/70417/.sbt/preloaded/org.scala-lang/jline/2.10.2/ivys/ivy.xml
+[debug] 	local-preloaded-ivy: no ivy file found for org.scala-lang#jline;2.10.2
+[debug] 		tried file:/C:/Users/70417/.sbt/preloaded/org/scala-lang/jline/2.10.2/jline-2.10.2.pom
+[debug] 	local-preloaded: no ivy file found for org.scala-lang#jline;2.10.2
+[debug] 		tried https://repo1.maven.org/maven2/org/scala-lang/jline/2.10.2/jline-2.10.2.pom
+[debug] 	public: found md file for org.scala-lang#jline;2.10.2
+[debug] 		=> https://repo1.maven.org/maven2/org/scala-lang/jline/2.10.2/jline-2.10.2.pom (2.10.2)
+[debug] downloading https://repo1.maven.org/maven2/org/scala-lang/jline/2.10.2/jline-2.10.2.pom ...
+[debug] 	public: downloading https://repo1.maven.org/maven2/org/scala-lang/jline/2.10.2/jline-2.10.2.pom
+[debug] 	public: downloading https://repo1.maven.org/maven2/org/scala-lang/jline/2.10.2/jline-2.10.2.pom.sha1
+[debug] sha1 OK for https://repo1.maven.org/maven2/org/scala-lang/jline/2.10.2/jline-2.10.2.pom
+[debug] 	[SUCCESSFUL ] org.scala-lang#jline;2.10.2!jline.pom(pom.original) (78ms)
+[debug] 		tried C:\Users\70417\.ivy2\local\org.scala-lang\jline\2.10.2\jars\jline.jar
+[debug] 		tried file:/C:/Users/70417/.sbt/preloaded/org.scala-lang/jline/2.10.2/jars/jline.jar
+[debug] 		tried file:/C:/Users/70417/.sbt/preloaded/org/scala-lang/jline/2.10.2/jline-2.10.2.jar
+[debug] 		tried https://repo1.maven.org/maven2/org/scala-lang/jline/2.10.2/jline-2.10.2.jar
+[debug] 	found org.scala-lang#jline;2.10.2 in public
+[debug] == resolving dependencies org.scala-lang#scala-compiler;2.10.2->org.scala-lang#jline;2.10.2 [optional->compile(*)]
+[debug] == resolving dependencies org.scala-lang#jline;2.10.2->org.fusesource.jansi#jansi;1.4 [compile->master(*)]
+[info] Resolving org.fusesource.jansi#jansi;1.4 ...
+[debug] sbt-chain: Checking cache for: dependency: org.fusesource.jansi#jansi;1.4 {compile=[compile(*), master(*)], runtime=[runtime(*)]}
+[debug] sbt-chain: module revision found in cache: org.fusesource.jansi#jansi;1.4
+[debug] 	found org.fusesource.jansi#jansi;1.4 in sbt-chain
+[debug] == resolving dependencies org.scala-lang#jline;2.10.2->org.fusesource.jansi#jansi;1.4 [compile->compile(*)]
+[debug] == resolving dependencies default#hw5_2.10;0.1->org.scala-lang#scala-library;2.10.2 [scala-tool->default]
+[debug] == resolving dependencies default#hw5_2.10;0.1->org.scala-lang#scala-library;2.10.2 [scala-tool->runtime]
+[debug] == resolving dependencies default#hw5_2.10;0.1->org.scala-lang#scala-library;2.10.2 [scala-tool->compile]
+[debug] == resolving dependencies default#hw5_2.10;0.1->org.scala-lang#scala-library;2.10.2 [scala-tool->master]
+[debug] == resolving dependencies default#hw5_2.10;0.1->org.scala-lang#scala-library;2.10.2 [scala-tool->optional(default)]
+[debug] 	resolved ivy file produced in cache
+[debug] :: downloading artifacts ::
+[debug] 		tried https://repo1.maven.org/maven2/org/scala-lang/scala-library/2.10.2/scala-library-2.10.2.jar
+[info] downloading https://repo1.maven.org/maven2/org/scala-lang/scala-library/2.10.2/scala-library-2.10.2.jar ...
+[debug] 	public: downloading https://repo1.maven.org/maven2/org/scala-lang/scala-library/2.10.2/scala-library-2.10.2.jar
+[debug] 	public: downloading https://repo1.maven.org/maven2/org/scala-lang/scala-library/2.10.2/scala-library-2.10.2.jar.sha1
+[debug] sha1 OK for https://repo1.maven.org/maven2/org/scala-lang/scala-library/2.10.2/scala-library-2.10.2.jar
+[info] 	[SUCCESSFUL ] org.scala-lang#scala-library;2.10.2!scala-library.jar (1770ms)
+[debug] 		tried https://repo1.maven.org/maven2/org/scala-lang/scala-compiler/2.10.2/scala-compiler-2.10.2.jar
+[info] downloading https://repo1.maven.org/maven2/org/scala-lang/scala-compiler/2.10.2/scala-compiler-2.10.2.jar ...
+[debug] 	public: downloading https://repo1.maven.org/maven2/org/scala-lang/scala-compiler/2.10.2/scala-compiler-2.10.2.jar
+[debug] 	public: downloading https://repo1.maven.org/maven2/org/scala-lang/scala-compiler/2.10.2/scala-compiler-2.10.2.jar.sha1
+[debug] sha1 OK for https://repo1.maven.org/maven2/org/scala-lang/scala-compiler/2.10.2/scala-compiler-2.10.2.jar
+[info] 	[SUCCESSFUL ] org.scala-lang#scala-compiler;2.10.2!scala-compiler.jar (4477ms)
+[debug] 		tried https://repo1.maven.org/maven2/org/scala-lang/scala-reflect/2.10.2/scala-reflect-2.10.2.jar
+[info] downloading https://repo1.maven.org/maven2/org/scala-lang/scala-reflect/2.10.2/scala-reflect-2.10.2.jar ...
+[debug] 	public: downloading https://repo1.maven.org/maven2/org/scala-lang/scala-reflect/2.10.2/scala-reflect-2.10.2.jar
+[debug] 	public: downloading https://repo1.maven.org/maven2/org/scala-lang/scala-reflect/2.10.2/scala-reflect-2.10.2.jar.sha1
+[debug] sha1 OK for https://repo1.maven.org/maven2/org/scala-lang/scala-reflect/2.10.2/scala-reflect-2.10.2.jar
+[info] 	[SUCCESSFUL ] org.scala-lang#scala-reflect;2.10.2!scala-reflect.jar (1206ms)
+[debug] 		tried https://repo1.maven.org/maven2/org/scala-lang/jline/2.10.2/jline-2.10.2.jar
+[info] downloading https://repo1.maven.org/maven2/org/scala-lang/jline/2.10.2/jline-2.10.2.jar ...
+[debug] 	public: downloading https://repo1.maven.org/maven2/org/scala-lang/jline/2.10.2/jline-2.10.2.jar
+[debug] 	public: downloading https://repo1.maven.org/maven2/org/scala-lang/jline/2.10.2/jline-2.10.2.jar.sha1
+[debug] sha1 OK for https://repo1.maven.org/maven2/org/scala-lang/jline/2.10.2/jline-2.10.2.jar
+[info] 	[SUCCESSFUL ] org.scala-lang#jline;2.10.2!jline.jar (154ms)
+[debug] 	[NOT REQUIRED] org.fusesource.jansi#jansi;1.4!jansi.jar
+[debug] :: resolution report :: resolve 618ms :: artifacts dl 7610ms
+[debug] 	report for default#hw5_2.10;0.1 compile produced in E:\IdeaProjects\HW5\target\resolution-cache\reports\default-hw5_2.10-compile.xml
+[debug] 	report for default#hw5_2.10;0.1 runtime produced in E:\IdeaProjects\HW5\target\resolution-cache\reports\default-hw5_2.10-runtime.xml
+[debug] 	report for default#hw5_2.10;0.1 test produced in E:\IdeaProjects\HW5\target\resolution-cache\reports\default-hw5_2.10-test.xml
+[debug] 	report for default#hw5_2.10;0.1 provided produced in E:\IdeaProjects\HW5\target\resolution-cache\reports\default-hw5_2.10-provided.xml
+[debug] 	report for default#hw5_2.10;0.1 optional produced in E:\IdeaProjects\HW5\target\resolution-cache\reports\default-hw5_2.10-optional.xml
+[debug] 	report for default#hw5_2.10;0.1 compile-internal produced in E:\IdeaProjects\HW5\target\resolution-cache\reports\default-hw5_2.10-compile-internal.xml
+[debug] 	report for default#hw5_2.10;0.1 runtime-internal produced in E:\IdeaProjects\HW5\target\resolution-cache\reports\default-hw5_2.10-runtime-internal.xml
+[debug] 	report for default#hw5_2.10;0.1 test-internal produced in E:\IdeaProjects\HW5\target\resolution-cache\reports\default-hw5_2.10-test-internal.xml
+[debug] 	report for default#hw5_2.10;0.1 plugin produced in E:\IdeaProjects\HW5\target\resolution-cache\reports\default-hw5_2.10-plugin.xml
+[debug] 	report for default#hw5_2.10;0.1 sources produced in E:\IdeaProjects\HW5\target\resolution-cache\reports\default-hw5_2.10-sources.xml
+[debug] 	report for default#hw5_2.10;0.1 docs produced in E:\IdeaProjects\HW5\target\resolution-cache\reports\default-hw5_2.10-docs.xml
+[debug] 	report for default#hw5_2.10;0.1 pom produced in E:\IdeaProjects\HW5\target\resolution-cache\reports\default-hw5_2.10-pom.xml
+[debug] 	report for default#hw5_2.10;0.1 scala-tool produced in E:\IdeaProjects\HW5\target\resolution-cache\reports\default-hw5_2.10-scala-tool.xml
+[debug] 	resolve done (618ms resolve - 7610ms download)
+[info] Done updating.

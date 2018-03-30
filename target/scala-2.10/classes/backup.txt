@@ -1,0 +1,217 @@
+import java.io.{File, FileWriter}
+
+import org.apache.log4j.{Level, Logger}
+import org.apache.spark._
+import org.apache.spark.graphx.{Graph, _}
+import org.apache.spark.rdd.RDD
+
+object BFS {
+  //val writer = new FileWriter(new File("srcID.txt"))
+  val conf = new SparkConf().setAppName("Chang_Fan_HW5").setMaster("local")
+  val sc = new SparkContext(conf)
+  Logger.getLogger("org.apache.spark").setLevel(Level.WARN)
+  Logger.getLogger("org.eclipse.jetty.server").setLevel(Level.OFF)
+  var c = 0
+  var c2 = 0
+  var c3 = 0
+
+  def main(args: Array[String]): Unit = {
+    val lines = sc.textFile(args(0))
+    val header = lines.first()
+    val input = lines.filter(line => line != header)
+    val splitInput = input.map(line => (line.split(",")(0).toLong, line.split(",")(1).toLong))
+    val userData = splitInput.groupByKey().sortByKey().map(x => (x._1, x._2.toSet))
+    val pairs = userData.cartesian(userData).filter(x => x._1._1 != x._2._1)
+    val intersection = pairs.map(x => (x._1._1, x._2._1, x._1._2.intersect(x._2._2)))
+    val friends = intersection.filter(x => x._3.size >= 3).map(x => (x._1, x._2)) // (user1, user2)
+    val vertices  = userData.map(x => (x._1.toLong, 0.0)) // 注意第一列为vertexId，必须为Long，第二列为顶点属性，可以为任意类型，包括Map等序列。
+    val edges = friends.map(x => Edge(x._1, x._2, 1.0)) // 起始点ID必须为Long，最后一个是属性，可以为任意类型
+    val graph: Graph[Double, Double] = Graph(vertices, edges) // （（点的属性），边的属性）
+    val testgraph =GraphLoader.edgeListFile(sc, "edgefile.txt")
+
+    val rootID = 1
+    val initialGraph2 = graph.mapVertices((id, _) => if (id == rootID) 0.0 else Double.PositiveInfinity).mapEdges(x => x.attr.toDouble)
+
+    val shorestPath = initialGraph2.pregel(initialMsg = Double.PositiveInfinity,
+      maxIterations = 10,
+      activeDirection = EdgeDirection.Out)(
+      (id,dist,newDist) => math.min(dist,newDist),
+      triplet=>{
+        if(triplet.srcAttr + 1.0 < triplet.dstAttr){ // srcAttr：邻居到根的距离；attr：自己到邻居的边长；desAttr：自身到根的距离
+          Iterator((triplet.dstId, triplet.srcAttr + 1.0)) //
+        }else{
+          Iterator.empty
+        }
+      },
+      (a,b) => math.min(a,b))
+    val DAGgraph = shorestPath.subgraph(vpred => vpred.srcAttr != vpred.dstAttr) // 一条边的两顶点bfs结果不同才保留
+
+
+    //    //val Community = DAGgraph.mapVertices((id, num) => if (id == rootID) 1 else num)
+    //    val SpPlusDepth = DAGgraph.pregel(0.0, 1, EdgeDirection.Out)( // 最短路径个数加上bfs层数
+    //      vprog = (id, attr, msg) => attr + msg,
+    //      sendMsg = triplet => {
+    //        if (triplet.srcAttr == triplet.dstAttr - 1) { // 如果目标在自己下一层
+    //          Iterator((triplet.dstId, 1))
+    //        }
+    //        else {
+    //          Iterator.empty
+    //        }
+    //      },
+    //      mergeMsg = (a,b) => a+b )
+    //    val SpPlusDepth1 = SpPlusDepth.mapVertices((id, num) => if (id == rootID) 1 else num)
+    //    //SpPlusDepth.vertices.collect.foreach(x => println(x))
+    //
+    //    val depth = shorestPath.vertices // 减掉层数
+    //    val numOfSp = SpPlusDepth1.joinVertices(depth) {
+    //      case (id, x, y) => x - y
+    //    }
+    //    //numOfSp.vertices.foreach(println)
+
+    val numOfSp0 = DAGgraph.pregel(Double.PositiveInfinity, 1, EdgeDirection.Out)(
+      vprog = (id, attr, msg) => {
+        //println("count is " + c.toString + "check" +  id + " " + msg.toString)
+        if (c == 0) {
+          math.min(attr, msg)
+        }
+        else {
+          msg
+        }
+      },
+      sendMsg = triplet => {
+        if (triplet.srcAttr == triplet.dstAttr - 1) { // 如果目标在自己下一层
+          Iterator((triplet.dstId, 1))
+        }
+        else {
+          Iterator.empty
+        }
+      },
+      mergeMsg = (a,b) => {
+        //println("merge! is "+c)
+        c = c + 1
+        a + b
+      } )
+    val numOfSp = numOfSp0.mapVertices((id, num) => if (id == rootID) 1 else num)
+
+
+    val DAGdegree = numOfSp.degrees.map(x => (x._1, x._2 / 2)) // 所有节点的度信息
+    val DegreeMinusNum = numOfSp.joinVertices(DAGdegree) {
+      case (id, num, degree) => degree - num
+    }
+    //DegreeMinusNum.vertices.foreach(x => println(x))
+    val leafNode = DegreeMinusNum.vertices.filter(x => x._2 == 0.0) // 所有叶节点
+
+    val initialCredit = numOfSp.joinVertices(leafNode) { //将叶节点置0，其他节点最短路径数至少为1
+      case (id, num, zero) => num * zero
+    }.mapVertices((id, value) => if (value == 0) 1.0 else 0.0) //属性为0的点是叶节点，设为1，其他为0
+    //initialCredit.vertices.foreach(x => println(x))
+
+    val depth = shorestPath.vertices
+    val NumAndDepth = numOfSp.outerJoinVertices(depth) { //（id，路径数，深度）
+      case (id, num, Some(dep)) => (num, dep)
+      case (id, num, None) => (num, -1.0)
+    }
+    //NumAndDepth.vertices.foreach(x => println(x))
+    val CreNumDep = initialCredit.outerJoinVertices(NumAndDepth.vertices) { // (id,(cre,num,dep))
+      case (id, cre, Some(x)) => (cre, x._1, x._2)
+      case (id, cre, None) => (cre, -1.0, -1.0)
+    }
+    //CreNumDep.vertices.foreach(x => println(x))
+
+    val sumIndegreeOfLastLayer = numOfSp.pregel(Double.PositiveInfinity, 1, EdgeDirection.Out)(
+      vprog = (id, attr, msg) => {
+        if (c2 == 0) {
+          math.min(attr, msg)
+        } else {
+          msg
+        }
+      },
+      sendMsg = triplet => {
+        if (triplet.srcAttr == triplet.dstAttr - 1) { // 如果目标在自己下一层
+          Iterator((triplet.dstId, triplet.srcAttr))
+        }
+        else {
+          Iterator.empty
+        }
+      },
+      mergeMsg = (a,b) => a+b )
+
+
+    val untitle = CreNumDep.pregel((-1.0, -1.0, -1.0), 3, EdgeDirection.In)(
+      vprog = (id, attr, msg) => {
+        //println("active ID: " + id + " count: " + c3 + " msg is " + msg)
+        if (c3 == 0) {
+          (attr._1, attr._2, attr._3)
+        } else {
+          (1 + msg._1, attr._2, attr._3)
+        }
+      },
+      sendMsg = triplet => {
+        //println("check " + triplet.srcAttr._3 + " " + triplet.dstAttr._3)
+        if (triplet.srcAttr._3 == triplet.dstAttr._3 + 1.0) { // 自己不为0分，目标在自己上一层
+          triplet.attr = triplet.srcAttr._1 * triplet.dstAttr._2 / triplet.srcAttr._2
+          Iterator((triplet.dstId, (triplet.srcAttr._1 * triplet.dstAttr._2 / triplet.srcAttr._2, 0, 0)))  // 发送自己的分数，其他两属性没用
+        }
+        else {
+          Iterator.empty
+        }
+      },
+      mergeMsg = (a,b) => {
+        c3 = c3 + 1
+        (a._1 + b._1, 0, 0)
+      } )
+    untitle.vertices.foreach(println)
+    //untitle.edges.foreach(println)
+
+
+  }
+}
+
+
+    val betweeness = record.map(x => ((x._1._1, x._1._2), x._2 / 2.0)).sortByKey() // betw和record都是RDD不是graph
+    betweeness.filter(x => x._1._1 < x._1._2).map(x => (x._1._1, x._1._2, x._2)).foreach(x => writer2.write(x.toString + "\n"))
+    writer2.close()
+    val threshold = record.map(x => x._2).max() / 2.0 * 0.2
+    println(threshold)
+
+    val edgeWithBet = betweeness.map(x => Edge(x._1._1, x._1._2, x._2)) // btw可换成record，留下低于阈值的边
+    val removeHighBet = Graph.fromEdges(edgeWithBet, 0.0).subgraph(epred=>epred.attr<threshold) //从低于阈值的边建立图，这是计算度的图
+    val edgesLeft = removeHighBet.edges.map(x => ((x.srcId, x.dstId), x.attr)) // 剩余的所有边，RDD格式
+    val numOfEdges = removeHighBet.edges.count() / 2.0 // m
+    //removeHighBet.vertices.foreach(println)
+    val cc = removeHighBet.connectedComponents() // cc是分开的连通子graph
+    val ccvertices = cc.vertices.map(x => (x._2, x._1)) // ccvertices是RDD (社区号，ID)
+    val community = ccvertices.groupByKey().sortByKey().map(x => {
+      val buffer = x._2
+      val member = buffer.map(x => x)
+      member
+    })
+    community.foreach(x => writer.write(x.toString().substring(4,x.toString().length) + "\n"))
+    writer.close()
+    //community.foreach(println)
+    val allPairs = ccvertices.cartesian(ccvertices).filter(x => x._1 != x._2) // ((社区号1，ID1),(社区号2，ID2))
+    val pairsWithin = allPairs.filter(x => x._1._1 == x._2._1).map(x => ((x._1._2, x._2._2), x._1._1.toDouble)) // ((ID1,ID2),公共社区号) 同一行社区号相等
+    //pairsWithin.foreach(println)
+    val join = edgesLeft.rightOuterJoin(pairsWithin) // ((pair), (Some(边的bet)/None, pair所在社区号))
+    val Aij = join.map(x => { //((pair), 社区号，Aij)
+      val pair = x._1
+      val A = if (x._2._1.isEmpty) 0.0 else 1.0
+      val communityNum = x._2._2
+      (pair, (communityNum, A))
+    })
+    //Aij.foreach(println)
+    val degreeOfLeftV = removeHighBet.degrees.map(x => (x._1, x._2 / 2)) // (ID, degree)
+    val degreePairs = degreeOfLeftV.cartesian(degreeOfLeftV) // 所有剩余点组成的pair，包含不需要的异组pair
+      .filter(x => x._1._1 != x._2._1)
+      .map(x => ((x._1._1, x._2._1), x._1._2 * x._2._2))
+    //degreePairs.foreach(println)
+    val Kij = degreePairs.rightOuterJoin(Aij).map(x => (x._1, x._2._1.getOrElse(-1), x._2._2._2, x._2._2._1)) // pair,K,A,社区号
+    //Kij.foreach(println)
+    val Q = Kij.map(x => {
+      val pair = x._1
+      val res = x._3 - x._2 / (2 * numOfEdges)
+      (pair, res)
+    })
+    //Kij.foreach(println)
+    val summation = Q.map(x => x._2).sum() / (2 * numOfEdges)
+    println("Q is " + summation)
